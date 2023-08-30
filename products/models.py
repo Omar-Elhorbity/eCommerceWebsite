@@ -6,6 +6,7 @@ class Seller(models.Model):
     phone = models.CharField(max_length=15)
     email = models.EmailField()
     profile = models.TextField(blank=True)
+    photo = models.ImageField(upload_to='seller/photos/', null=True)
 
     def __str__(self):
         return self.name 
@@ -15,7 +16,7 @@ class Product(models.Model):
     description = models.TextField(blank=True)
     price = models.IntegerField()
     seller = models.ForeignKey(Seller, on_delete=models.DO_NOTHING)
-    
+    photo = models.ImageField(upload_to='product/photos/', null=True)
 
     def __str__(self):
         return self.name 
